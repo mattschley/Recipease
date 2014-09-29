@@ -10,8 +10,12 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <link href="css/styles.css" rel="stylesheet">
+
     
       <!-- script references 
       <form method="post" action="hello.php"></form>
@@ -19,14 +23,15 @@
       session_start();
       $_SESSION['name'] = $inputname;
       ?>-->
-      
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+   <!--  // <script src="//code.jquery.com/jquery-1.11.1.js"></script> -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.js"></script>
   </head>
   
   <body>
-  <div id="badge" class="badge"></div>
+  
 <script type="text/javascript">
 function submit12(){
 
@@ -110,17 +115,13 @@ $(document).ready(function() {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Bottom Bar</a>
+        <a class="navbar-brand" href="#">Submit</a>
       </div>
       <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">More</a></li>
-          <li><a href="#about">Bottom</a></li>
-          <li><a href="#contact">Menus</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="../navbar/">Default</a></li>
-          <li><a href="../navbar-fixed-top/">Fixed Bottom</a></li>
+          <li class="active"><a href="#">User Profile</a></li>
+          <li><a href="#about">Settings</a></li>
+          <li><a href="#contact">Email Us</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -128,7 +129,8 @@ $(document).ready(function() {
   
   
   <div class="center-container">
-  <div class="center-row">
+  <div class="row">
+    <h1>RecipEase</h1>
     <h2>Ingredients List</h2>
     <p>What do you have in your fridge?</p>  
     <input type="checkbox" name="ingredient" value="broccoli">Broccoli
@@ -177,25 +179,121 @@ $(document).ready(function() {
     <input type="checkbox" name="ingredient" value="icecream">Ice cream
     <input type="checkbox" name="ingredient" value="pudding">Pudding
     <input type="checkbox" name="ingredient" value="kale">Kale
-    
-
+    <br>
     <button id="btnSubmit" value="Submit" onclick="submit12()">SUBMIT</button>
+    <br>
+    <div id="badge" class="badge"></div>
+    <br>
+    <div class="row">
+      <h2>Ingredients List</h2>
+      <p>What do you have in your fridge?</p>  
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/banana.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Banana</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/bean.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Bean</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/beef.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Beef</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/berries.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Berries</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/broccoli.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Broccoli</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/cheese.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Cheese</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/chicken.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Chicken</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/kiwi.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Kiwi</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/butter.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Butter</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/garlic.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Garlic</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/bokchoy.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Bokchoy</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Chestnuts</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/cauliflower.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Cauliflower</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/cabbage.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Cabbage</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/celery.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Celery</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/cherries.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Cherries</h3>
+        </div>
+
+    </div>
 
   </div>
 </div>
 
   
 </div>
-
-
-
-<div id="footer">
-  <div class="container">
-  
-  </div>
-</div>
-
-
     
   </body>
 </html>

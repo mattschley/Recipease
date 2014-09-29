@@ -1,7 +1,21 @@
 html,
 body {
-  height: 100%;
 }
+
+
+h1{
+  font-family: 'Montserrat',sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h2{
+  font-family: 'Montserrat',sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+}
+
 
 #wrap {
   min-height: 100%;
@@ -52,15 +66,35 @@ body {
   vertical-align:middle;
 }
 
-.bg-one {
-  background:#efefef url('../images/broccoli.jpg');
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
 }
-.bg-two {
-  background:#efefef url('../images/chicken.jpg');
+
+
+.wrapper .header {
+    display:block;
+    width:100%;
+    margin-top: 0px; 
+    font-size: 1em; 
+    font-family: 'Trebuchet MS', sans-serif;
+    text-align:center;
+  }
+
+#badge{
+  width: 300px;
+  margin-top: 15px;
 }
-.bg-three {
-  background:#efefef url('../images/potato.jpg');
+
+#badge > h3{
+  font-size: 1em;
+  font-weight: bold;
+
 }
-.bg-four {
-  background:#efefef url('../images/rice.jpg');
+
+#btnSubmit{
+  color:black;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight:bold;
 }
