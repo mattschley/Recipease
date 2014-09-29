@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "RecipeApp": {
+            "applicationId": "pOOFwASZFFPKxS47OZ2wCUGJYgXlrEM4giMSQCuX", 
+            "masterKey": "ZHhcbKhn3YZ0HOvJRgw5CdMfMmweBuFCryUiMcTl"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.0"
+    }
+}
