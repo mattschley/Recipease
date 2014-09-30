@@ -23,86 +23,69 @@
       session_start();
       $_SESSION['name'] = $inputname;
       ?>-->
+      <script src="js/scripts.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
       <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
    <!--  // <script src="//code.jquery.com/jquery-1.11.1.js"></script> -->
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
   </head>
-  
   <body>
-  
-<script type="text/javascript">
-function submit12(){
+  <script type="text/javascript">
+  function submit12(){
 
-var str1 = '';
-var str2 = '';
-$(document).ready(function() {
+    var str1 = '';
+    var str2 = '';
 
-    //$('#btnSubmit').on('click', function(e) {
-        var count = 0;
-        var length = $("input[name='ingredient']:checked").length;
+    $(document).ready(function() {
+      var count = 0;
+      var length = $("input[name='ingredient']:checked").length;
 
-        if (length < 3 )
+      if (length < 3 )
+      {   
+          alert('Select at least 3 ingredients');
+          e.preventDefault();
+      }
+      else
+      {
+          var $ingredient = $( "input[name='ingredient']:checked").each(function() {
+            var $this = $(this);
+            var name = $this.attr("value");
+               
+               str1 += str2+name+'+';
+               console.log(str1);
+               var url_search = 'http://api.yummly.com/v1/api/recipes?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8&q=' + str1 +'&requirePictures=true';
 
-        {   
-
-            alert('Select at least 3 ingredients');
-
-            e.preventDefault();
-
-        }
-        else
-        {
-            var $ingredient = $( "input[name='ingredient']:checked").each(function() {
-                 var $this = $(this);
-                 var name = $this.attr("value");
-                 
-                 str1 += str2+name+'+';
-                 console.log(str1);
-                 var url_search = 'http://api.yummly.com/v1/api/recipes?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8&q=' + str1 +'&requirePictures=true';
-
-
-                 alert(url_search);
-                 $.ajax({
-                      type: 'GET',
-                      url: url_search,
-                      dataType: 'jsonp',
-                      success: function(json) {
-                          console.log(json);
-                          
-                          var result = '<h3>Matches:  ' + json['matches'][0].id + 
-                                '<br>' + 
-                                '<h3>Ingredients:  '+ json['matches'][0].ingredients +
-                                '<br>' + 
-                                '<h3>recipeName:  '+ json['matches'][0].recipeName +
-                                '<br>' + 
-                                '<h3>cuisine:  '+ json['matches'][0].cuisine +
-                                '<br>' + 
-                                '<h3>flavors:  '+ json['matches'][0].flavors +
-                                '<br>' + 
-                                '<h3>logo:  '+ json['matches'][0].logo
-                                
-                          ;
-                          count += 1;
-                          if(count==length){$('#badge').append(result);}
-                      }
-                  });
-
-
+               alert(url_search);
+               $.ajax({
+                    type: 'GET',
+                    url: url_search,
+                    dataType: 'jsonp',
+                    success: function(json) {
+                        console.log(json);
+                        
+                        var result = '<h3>Matches:  ' + json['matches'][0].id + 
+                              '<br>' + 
+                              '<h3>Ingredients:  '+ json['matches'][0].ingredients +
+                              '<br>' + 
+                              '<h3>recipeName:  '+ json['matches'][0].recipeName +
+                              '<br>' + 
+                              '<h3>cuisine:  '+ json['matches'][0].cuisine +
+                              '<br>' + 
+                              '<h3>flavors:  '+ json['matches'][0].flavors +
+                              '<br>' + 
+                              '<h3>logo:  '+ json['matches'][0].logo
+                              
+                        ;
+                        count += 1;
+                        if(count==length){$('#badge').append(result);}
+                    }
+                });
+          });
+      }
     });
-          
-        }
-            
-
-    //});
-
-});
-
-
-}
+ }
 </script>
-
 <!-- Wrap all page content here -->
 <div id="wrap">
   
@@ -133,55 +116,55 @@ $(document).ready(function() {
     <h1>RecipEase</h1>
     <h2>Ingredients List</h2>
     <p>What do you have in your fridge?</p>  
-    <input type="checkbox" name="ingredient" value="broccoli">Broccoli
-    <input type="checkbox" name="ingredient" value="beef">Beef
-    <input type="checkbox" name="ingredient" value="chicken">Chicken
-    <input type="checkbox" name="ingredient" value="potato">Potato
-    <input type="checkbox" name="ingredient" value="tomato">Tomato
-    <input type="checkbox" name="ingredient" value="garlic">Garlic
-    <input type="checkbox" name="ingredient" value="berries">Berries
-    <input type="checkbox" name="ingredient" value="bean">Bean
-    <input type="checkbox" name="ingredient" value="bakingpowder">Baking powder
-    <input type="checkbox" name="ingredient" value="banana">Banana
-    <input type="checkbox" name="ingredient" value="kiwi">Kiwi
-    <input type="checkbox" name="ingredient" value="cheese">Cheese
-    <input type="checkbox" name="ingredient" value="bokchoy">Bok-choy
-    <input type="checkbox" name="ingredient" value="chestnut">Chestnut
-    <input type="checkbox" name="ingredient" value="cabbage">Cabbage
-    <input type="checkbox" name="ingredient" value="cherries">Cherries
-    <input type="checkbox" name="ingredient" value="chocolate">Chocolate
-    <input type="checkbox" name="ingredient" value="chowder">Chowder
-    <input type="checkbox" name="ingredient" value="catfirst">Catfish
-    <input type="checkbox" name="ingredient" value="cauliflower">Cauliflower
-    <input type="checkbox" name="ingredient" value="coconutmilk">Coconut milk
-    <input type="checkbox" name="ingredient" value="butter">Butter
-    <input type="checkbox" name="ingredient" value="clams">Clams
-    <input type="checkbox" name="ingredient" value="coffee">Coffee
-    <input type="checkbox" name="ingredient" value="chai">Chai
-    <input type="checkbox" name="ingredient" value="celery">Celery
-    <input type="checkbox" name="ingredient" value="sugar">Sugar 
-    <input type="checkbox" name="ingredient" value="salt">Salt
-    <input type="checkbox" name="ingredient" value="eggs">Eggs
-    <input type="checkbox" name="ingredient" value="eggplants">Eggplants
-    <input type="checkbox" name="ingredient" value="falafel">Falafel
-    <input type="checkbox" name="ingredient" value="flour">Flour
-    <input type="checkbox" name="ingredient" value="flaxseeds">Flax seeds
-    <input type="checkbox" name="ingredient" value="ginger">Ginger
-    <input type="checkbox" name="ingredient" value="syrup">Syrup
-    <input type="checkbox" name="ingredient" value="grapes">Grapes
-    <input type="checkbox" name="ingredient" value="granola">Granola
-    <input type="checkbox" name="ingredient" value="gluten">Gluten
-    <input type="checkbox" name="ingredient" value="hamburger">Hamburger
-    <input type="checkbox" name="ingredient" value="hazelnut">Hazelnuts
-    <input type="checkbox" name="ingredient" value="cream">Cream
-    <input type="checkbox" name="ingredient" value="hoisinsauce">Hoisin sauce
-    <input type="checkbox" name="ingredient" value="herb">Herb
-    <input type="checkbox" name="ingredient" value="icecream">Ice cream
-    <input type="checkbox" name="ingredient" value="pudding">Pudding
-    <input type="checkbox" name="ingredient" value="kale">Kale
-    <br>
-    <button id="btnSubmit" value="Submit" onclick="submit12()">SUBMIT</button>
-    <br>
+      <input type="checkbox" name="ingredient" value="broccoli">Broccoli
+      <input type="checkbox" name="ingredient" value="beef">Beef
+      <input type="checkbox" name="ingredient" value="chicken">Chicken
+      <input type="checkbox" name="ingredient" value="potato">Potato
+      <input type="checkbox" name="ingredient" value="tomato">Tomato
+      <input type="checkbox" name="ingredient" value="garlic">Garlic
+      <input type="checkbox" name="ingredient" value="berries">Berries
+      <input type="checkbox" name="ingredient" value="bean">Bean
+      <input type="checkbox" name="ingredient" value="bakingpowder">Baking powder
+      <input type="checkbox" name="ingredient" value="banana">Banana
+      <input type="checkbox" name="ingredient" value="kiwi">Kiwi
+      <input type="checkbox" name="ingredient" value="cheese">Cheese
+      <input type="checkbox" name="ingredient" value="bokchoy">Bok-choy
+      <input type="checkbox" name="ingredient" value="chestnut">Chestnut
+      <input type="checkbox" name="ingredient" value="cabbage">Cabbage
+      <input type="checkbox" name="ingredient" value="cherries">Cherries
+      <input type="checkbox" name="ingredient" value="chocolate">Chocolate
+      <input type="checkbox" name="ingredient" value="chowder">Chowder
+      <input type="checkbox" name="ingredient" value="catfirst">Catfish
+      <input type="checkbox" name="ingredient" value="cauliflower">Cauliflower
+      <input type="checkbox" name="ingredient" value="coconutmilk">Coconut milk
+      <input type="checkbox" name="ingredient" value="butter">Butter
+      <input type="checkbox" name="ingredient" value="clams">Clams
+      <input type="checkbox" name="ingredient" value="coffee">Coffee
+      <input type="checkbox" name="ingredient" value="chai">Chai
+      <input type="checkbox" name="ingredient" value="celery">Celery
+      <input type="checkbox" name="ingredient" value="sugar">Sugar 
+      <input type="checkbox" name="ingredient" value="salt">Salt
+      <input type="checkbox" name="ingredient" value="eggs">Eggs
+      <input type="checkbox" name="ingredient" value="eggplants">Eggplants
+      <input type="checkbox" name="ingredient" value="falafel">Falafel
+      <input type="checkbox" name="ingredient" value="flour">Flour
+      <input type="checkbox" name="ingredient" value="flaxseeds">Flax seeds
+      <input type="checkbox" name="ingredient" value="ginger">Ginger
+      <input type="checkbox" name="ingredient" value="syrup">Syrup
+      <input type="checkbox" name="ingredient" value="grapes">Grapes
+      <input type="checkbox" name="ingredient" value="granola">Granola
+      <input type="checkbox" name="ingredient" value="gluten">Gluten
+      <input type="checkbox" name="ingredient" value="hamburger">Hamburger
+      <input type="checkbox" name="ingredient" value="hazelnut">Hazelnuts
+      <input type="checkbox" name="ingredient" value="cream">Cream
+      <input type="checkbox" name="ingredient" value="hoisinsauce">Hoisin sauce
+      <input type="checkbox" name="ingredient" value="herb">Herb
+      <input type="checkbox" name="ingredient" value="icecream">Ice cream
+      <input type="checkbox" name="ingredient" value="pudding">Pudding
+      <input type="checkbox" name="ingredient" value="kale">Kale
+        <br>
+        <button id="btnSubmit" value="Submit" onclick="submit12()">SUBMIT</button>
+        <br>
     <div id="badge" class="badge"></div>
     <br>
     <div class="row">
@@ -209,21 +192,15 @@ $(document).ready(function() {
               <h3 class="header">Beef</h3>
         </div>
         <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/berries.jpg" class="thumbnail img-responsive" />
-          </a>
+              <img src="images/berries.jpg" id="berries" onclick="markActiveLink(this)" class="thumbnail img-responsive" />
               <h3 class="header">Berries</h3>
         </div>
         <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/broccoli.jpg" class="thumbnail img-responsive" />
-          </a>
+              <img src="images/broccoli.jpg"  id="broccoli" onclick="change(this)" class="thumbnail img-responsive" />
               <h3 class="header">Broccoli</h3>
         </div>
         <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/cheese.jpg" class="thumbnail img-responsive" />
-          </a>
+              <img src="images/cheese.jpg" id="cheese" onclick="change(this)" class="thumbnail img-responsive" />
               <h3 class="header">Cheese</h3>
         </div>
         <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
