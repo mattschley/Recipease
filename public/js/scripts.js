@@ -22,3 +22,24 @@ function isBoxChecked(){
 		foods.push(this.value);
 	}
 }
+var newsrc = "images/check.jpg";
+function change(el){
+      var x = document.getElementById("broccoli");
+      var foo = ($(el).attr("id"));
+      var bar = ""+foo+"";
+      alert(foo);
+      var original_image = "images/"+ foo +".jpg";
+      alert(original_image); 
+      //console.log(x); <- object
+      if (newsrc == original_image ) {
+        document.images[bar].src = original_image;
+        newsrc  = "images/check.jpg";
+      }
+      else {
+        document.images[bar].src = "images/check.jpg";
+        newsrc  = original_image;
+      }
+}
+function markActiveLink(el) {   
+    alert($(el).attr("id"));
+}
