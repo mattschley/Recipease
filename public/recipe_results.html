@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>50/505 Content with Background Image</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link href="css/styles.css" rel="stylesheet">
+
+  
+      <!-- script references 
+      <script src="js/scripts.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+   <!--  // <script src="//code.jquery.com/jquery-1.11.1.js"></script> -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <center><h3>Results</h3><center>
+  <script type="text/javascript">
+  function submit12(){
+
+    var str1 = '';
+    var str2 = '';
+
+    $(document).ready(function() {
+      var count = 0;
+      var length = $("input[name='ingredient']:checked").length;
+
+      if (length < 3 )
+      {   
+          alert('Select at least 3 ingredients');
+          e.preventDefault();
+      }
+      else
+      {
+          var $ingredient = $( "input[name='ingredient']:checked").each(function() {
+            var $this = $(this);
+            var name = $this.attr("value");
+               
+               str1 += str2+name+'+';
+               console.log(str1);
+               var yummlySearch = 'http://api.yummly.com/v1/api/recipes?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8&q=' + str1 +'&requirePictures=true';
+
+               //alert(url_search);
+               $.ajax({
+                    type: 'GET',
+                    url: yummlySearch,
+                    dataType: 'jsonp',
+                    success: function(json) {
+                        console.log(json);
+
+                        var result = 
+
+                        '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href="http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"<link></div>'
+                         +  '<br>' + 
+                        '<h3>Recipe Name:  '+ json['matches'][i].recipeName +
+                        '<br>' + 
+                        '<h3>rating:  '+ json['matches'][i].rating +
+                        '<br>' +  
+                        '<h3>sourceDisplayName:  '+ json['matches'][i].sourceDisplayName +
+                        '<br><br>' + 
+                        '<img src='+ json['matches'][i].smallImageUrls + '><br>'
+                        ;
+                      
+                      count += 1;
+                      console.log(result);
+                      $('#badge').append(result);
+           
+                    }
+                });
+          });
+      }
+    });
+ }
+</script>
+    
+  </body>
+</html>
+
+
+
+
