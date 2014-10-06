@@ -54,36 +54,31 @@
                
                str1 += str2+name+'+';
                console.log(str1);
-               var yummlySearch = 'http://api.yummly.com/v1/api/recipes?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8&q=' + str1 +'&requirePictures=true';
+               var url_search = 'http://api.yummly.com/v1/api/recipes?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8&q=' + str1 +'&requirePictures=true';
 
-               //alert(url_search);
+               alert(url_search);
                $.ajax({
                     type: 'GET',
-                    url: yummlySearch,
+                    url: url_search,
                     dataType: 'jsonp',
                     success: function(json) {
                         console.log(json);
                         
-                        for (i = 0; i < 10;i++){
-
-                        var result = 
-
-                        '<center><div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href="http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"<link></div></center>'
-                         +  '<br>' + 
-                        '<h3>Recipe Name:  '+ json['matches'][i].recipeName +
-                        '<br>' + 
-                        '<h3>rating:  '+ json['matches'][i].rating +
-                        '<br>' +  
-                        '<h3>sourceDisplayName:  '+ json['matches'][i].sourceDisplayName +
-                        '<br><br>' + 
-                        '<img src='+ json['matches'][i].smallImageUrls + '><br>'
+                        var result = '<h3>Matches:  ' + json['matches'][0].id + 
+                              '<br>' + 
+                              '<h3>Ingredients:  '+ json['matches'][0].ingredients +
+                              '<br>' + 
+                              '<h3>recipeName:  '+ json['matches'][0].recipeName +
+                              '<br>' + 
+                              '<h3>cuisine:  '+ json['matches'][0].cuisine +
+                              '<br>' + 
+                              '<h3>flavors:  '+ json['matches'][0].flavors +
+                              '<br>' + 
+                              '<h3>logo:  '+ json['matches'][0].logo
+                              
                         ;
-                      
-                      count += 1;
-                      console.log(result);
-                      $('#badge').append(result);
-                      
-                      }
+                        count += 1;
+                        if(count==length){$('#badge').append(result);}
                     }
                 });
           });
@@ -94,7 +89,7 @@
 <!-- Wrap all page content here -->
 <div id="wrap">
   
-  <!-- Static bottom navbar -->
+   <!-- Static bottom navbar -->
   <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
       <div class="navbar-header">
@@ -107,9 +102,9 @@
       </div>
       <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="fridge.html">My Fridge</a></li>
-          <li><a href="ingredients.html">Ingredients</a></li>
+          <li class="active"><a href="ingredients.html">Ingredients</a></li>
           
         </ul>
       </div><!--/.nav-collapse -->
@@ -118,10 +113,8 @@
   
   
   <div class="center-container">
-  <div class="row">
-    <h1>RecipEase</h1>
-    <h2>Ingredients List</h2>
-    <p>What do you have in your fridge?</p>  
+    <div class="row">
+    <h2>ADD INGREDIENTS</h2>  
       <input type="checkbox" name="ingredient" value="broccoli">Broccoli
       <input type="checkbox" name="ingredient" value="beef">Beef
       <input type="checkbox" name="ingredient" value="chicken">Chicken
@@ -171,119 +164,12 @@
         <br>
         <button id="btnSubmit" value="Submit" onclick="submit12()">SUBMIT</button>
         <br>
-
-       <div class="row" id="badge">
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <h2>Ingredients List</h2>
-      <p>What do you have in your fridge?</p>  
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/banana.jpg" id="banana" onclick="change(this)" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Banana</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/bean.jpg" id="bean" onclick="change(this)" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Bean</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/beef.jpg" id="beef" onclick="change(this)" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Beef</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-              <img src="images/berries.jpg" id="berries" onclick="markActiveLink(this)" class="thumbnail img-responsive" />
-              <h3 class="header">Berries</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-              <img src="images/broccoli.jpg"  id="broccoli" onclick="change(this)" class="thumbnail img-responsive" />
-              <h3 class="header">Broccoli</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-              <img src="images/cheese.jpg" id="cheese" onclick="change(this)" class="thumbnail img-responsive" />
-              <h3 class="header">Cheese</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/chicken.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Chicken</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/kiwi.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Kiwi</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/butter.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Butter</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/garlic.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Garlic</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/bokchoy.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Bokchoy</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Chestnuts</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/cauliflower.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Cauliflower</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/cabbage.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Cabbage</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/celery.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Celery</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/cherries.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Cherries</h3>
-        </div>
-
-    </div>
-
+      </div>        
   </div>
-</div>
+
 
   
 </div>
     
   </body>
 </html>
-
-
-
-
