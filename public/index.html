@@ -63,27 +63,27 @@
                     dataType: 'jsonp',
                     success: function(json) {
                         console.log(json);
-                        
+
                         for (i = 0; i < 10;i++){
 
-                        var result = 
+                        var resultid = json['matches'][i].id;
+                        localStorage.setItem('resultid', JSON.stringify(resultid));
 
-                        '<center><div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href="http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"<link></div></center>'
-                         +  '<br>' + 
-                        '<h3>Recipe Name:  '+ json['matches'][i].recipeName +
-                        '<br>' + 
-                        '<h3>rating:  '+ json['matches'][i].rating +
-                        '<br>' +  
-                        '<h3>sourceDisplayName:  '+ json['matches'][i].sourceDisplayName +
-                        '<br><br>' + 
-                        '<img src='+ json['matches'][i].smallImageUrls + '><br>'
-                        ;
-                      
-                      count += 1;
-                      console.log(result);
-                      $('#badge').append(result);
-                      
+                        var result0 = 
+                        '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href="http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
+                        var result1 = 
+                         json['matches'][i].id + '<h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
+                        var result2 = 
+                        '<h3>rating:  '+ json['matches'][i].rating + '<br>'; 
+                        var result3 = 
+                        '<img src='+ json['matches'][i].smallImageUrls + '></div><br>';
+                        var result = result0 + result1 + result2 + result3;
+
+                        count += 1;
+                        console.log(result);
+                        $('#badge').append(result);
                       }
+                      sessionStorage.setItem("badge", "John");
                     }
                 });
           });
