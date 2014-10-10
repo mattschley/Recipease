@@ -38,7 +38,7 @@ $(function() {
           $( "ul", $trash ) :
           $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
  
-        $item.find( "a.ui-icon-trash" ).remove();
+        $item.find( "a.ui-icon-heart" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           $item
             .animate({ width: "48px" })
@@ -49,7 +49,7 @@ $(function() {
     }
  
     // image recycle function
-    var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Add Ingredient</a>";
+    var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-heart'>Add Ingredient</a>";
     function recycleImage( $item ) {
       $item.fadeOut(function() {
         $item
@@ -73,7 +73,7 @@ $(function() {
       var $item = $( this ),
         $target = $( event.target );
  
-      if ( $target.is( "a.ui-icon-trash" ) ) {
+      if ( $target.is( "a.ui-icon-heart" ) ) {
         deleteImage( $item );
       } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
         viewLargerImage( $target );
