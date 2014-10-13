@@ -31,7 +31,7 @@ $(function() {
     });
  
     // image deletion function
-    var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+    var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Delete Ingredient' class='ui-icon ui-icon-trash'>Delete Ingredient</a>";
     function deleteImage( $item ) {
       $item.fadeOut(function() {
         var $list = $( "ul", $trash ).length ?
@@ -41,25 +41,25 @@ $(function() {
         $item.find( "a.ui-icon-heart" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           $item
-            .animate({ width: "48px" })
+            .animate({ width: "85px" })
             .find( "img" )
-              .animate({ height: "36px" });
+              .animate({ height: "15px" });
         });
       });
     }
  
     // image recycle function
-    var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-heart'>Add Ingredient</a>";
+    var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Add Ingredient' class='ui-icon ui-icon-heart'>Add Ingredient</a>";
     function recycleImage( $item ) {
       $item.fadeOut(function() {
         $item
-          .find( "a.ui-icon-refresh" )
+          .find( "a.ui-icon-trash" )
             .remove()
           .end()
-          .css( "width", "96px")
+          .css( "width", "90px")
           .append( trash_icon )
           .find( "img" )
-            .css( "height", "72px" )
+            .css( "height", "30px" )
           .end()
           .appendTo( $gallery )
           .fadeIn();
@@ -77,7 +77,7 @@ $(function() {
         deleteImage( $item );
       } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
         viewLargerImage( $target );
-      } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+      } else if ( $target.is( "a.ui-icon-trash" ) ) {
         recycleImage( $item );
       }
  
