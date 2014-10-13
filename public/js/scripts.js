@@ -1,6 +1,6 @@
 var foods = [];
 function loadArray(){
-	$(document).ready(function() {
+  $(document).ready(function() {
     $('#selecctall').click(function(event) {  //on click 
         if(this.checked) { // check select status
             $('.checkbox1').each(function() { //loop through each checkbox
@@ -18,9 +18,9 @@ function loadArray(){
 
 
 function isBoxChecked(){
-	if(document.getElementById("ingredient1").checked = true){
-		foods.push(this.value);
-	}
+  if(document.getElementById("ingredient1").checked = true){
+    foods.push(this.value);
+  }
 }
 var newsrc = "images/check.jpg";
 function change(el){
@@ -42,4 +42,9 @@ function change(el){
 }
 function markActiveLink(el) {   
     alert($(el).attr("id"));
+}
+function override(e){
+  var name = e.getAttribute("id");
+  localStorage.setItem('resultid', JSON.stringify(name));
+  alert("hi");
 }

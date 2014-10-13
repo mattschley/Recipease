@@ -16,13 +16,6 @@
     
     <link href="css/styles.css" rel="stylesheet">
 
-    
-      <!-- script references 
-      <form method="post" action="hello.php"></form>
-      <?php
-      session_start();
-      $_SESSION['name'] = $inputname;
-      ?>-->
       <script src="js/scripts.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
       <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
@@ -37,7 +30,7 @@
     var str1 = '';
     var str2 = '';
 
-    $(document).ready(function() {
+    $(document).ready(function(e) {
       var count = 0;
       var length = $("input[name='ingredient']:checked").length;
 
@@ -48,47 +41,67 @@
       }
       else
       {
-          var $ingredient = $( "input[name='ingredient']:checked").each(function() {
+          var $ingredient = $( "input[name='ingredient']:checked").each(function(){
             var $this = $(this);
             var name = $this.attr("value");
                
                str1 += str2+name+'+';
-               console.log(str1);
+             })
                var yummlySearch = 'http://api.yummly.com/v1/api/recipes?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8&q=' + str1 +'&requirePictures=true';
 
-               //alert(url_search);
                $.ajax({
                     type: 'GET',
                     url: yummlySearch,
                     dataType: 'jsonp',
                     success: function(json) {
                         console.log(json);
-
+                      
                         for (i = 0; i < 10;i++){
-
+                        //alert(i);
                         var resultid = json['matches'][i].id;
                         localStorage.setItem('resultid', JSON.stringify(resultid));
+                        // var resultid1 = json['matches'][1].id;
+                        // localStorage.setItem('resultid1', JSON.stringify(resultid1));
+                        // var resultid2 = json['matches'][2].id;
+                        // localStorage.setItem('resultid2', JSON.stringify(resultid2));
+                        // var resultid3 = json['matches'][3].id;
+                        // localStorage.setItem('resultid3', JSON.stringify(resultid3));
+                        // var resultid4 = json['matches'][4].id;
+                        // localStorage.setItem('resultid4', JSON.stringify(resultid4));
+                        // var resultid5 = json['matches'][5].id;
+                        // localStorage.setItem('resultid5', JSON.stringify(resultid5));
+                        // var resultid6 = json['matches'][6].id;
+                        // localStorage.setItem('resultid6', JSON.stringify(resultid6));
+                        // var resultid7 = json['matches'][7].id;
+                        // localStorage.setItem('resultid7', JSON.stringify(resultid7));
+                        // var resultid8 = json['matches'][8].id;
+                        // localStorage.setItem('resultid8', JSON.stringify(resultid8));
+                        // var resultid9 = json['matches'][9].id;
+                        // localStorage.setItem('resultid9', JSON.stringify(resultid9));
 
-                        var result0 = 
-                        '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href="http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
+                        // var result0 = 
+                        // '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href= "recipe_results.html" value = "http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
                         var result1 = 
-                         json['matches'][i].id + '<h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
+                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
                         var result2 = 
                         '<h3>rating:  '+ json['matches'][i].rating + '<br>'; 
                         var result3 = 
                         '<img src='+ json['matches'][i].smallImageUrls + '></div><br>';
-                        var result = result0 + result1 + result2 + result3;
-
-                        count += 1;
-                        console.log(result);
+                        var result =result1 + result2 + result3;
+                        //var result = result0;
+                        //count += 1;
+                        console.log(i);
+                        alert(resultid);
+                        count = count + 1; 
                         $('#badge').append(result);
                       }
+
                       sessionStorage.setItem("badge", "John");
                     }
+
                 });
-          });
-      }
-    });
+          }
+      });
  }
 </script>
 <!-- Wrap all page content here -->
@@ -172,14 +185,9 @@
         <button id="btnSubmit" value="Submit" onclick="submit12()">SUBMIT</button>
         <br>
 
-       <div class="row" id="badge">
-      </div>
+       <div class="row" id="badge"></div>
     </div>
     <br>
-    <div class="row">
-      <h2>Ingredients List</h2>
-      <p>What do you have in your fridge?</p>  
-    </div>
 
     <div class="row">
         <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
@@ -283,7 +291,3 @@
     
   </body>
 </html>
-
-
-
-

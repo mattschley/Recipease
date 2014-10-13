@@ -23,17 +23,19 @@
   
 </head>
 <body>
-       <div class="row" id="badge"></div>
+       <div class="row" class = "badge" id="badge"></div>
+       <div id="resultme"></div><br>
+        <div id = "resultyou"></div>
 <script type="text/javascript">
 function loadpage(){
 
 var retrievedObject = localStorage.getItem('resultid');
 console.log('retrievedObject: ', JSON.parse(retrievedObject));
-var urlstring = 'http://api.yummly.com/v1/api/recipe/' + retrievedObject + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8';
-alert(urlstring);
-}
 
-window.onload = loadpage;
+var retrievedObjectDequote = retrievedObject.substr(1,retrievedObject.length-2);
+
+var urlstring = 'http://api.yummly.com/v1/api/recipe/' + retrievedObjectDequote + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8';
+
 
                $.ajax({
                     type: 'GET',
@@ -41,26 +43,33 @@ window.onload = loadpage;
                     dataType: 'jsonp',
                     success: function(json) {
                         console.log(json);
-
-                        for (i = 0; i < 10;i++){
-
-                        //var result = json['matches'][i].id;
-                        var result = urlstring;
-                        count += 1;
-                        console.log(result);
-                        $('#badge').append(result);
+                        //for (i = 0; i < 10;i++){
+                          i=0;
+                        var surl = json.source.sourceRecipeUrl;
+                        var bigphoto = json.images[0].hostedLargeUrl;
+                        var name = json.name;
+                        var temp = json.ingredientLines;
+                        var length = temp.length;
+                        var ingredients = '';
+                        //alert(length);
+                        for(i=0; i < length; i++){
+                          ingredients = ingredients + String(temp[i]) + '<br>';
+                        }
+                        //alert(ingredients);
+                        //var result = json['attribute'][i].id;
+                        var result = '<img src="'+ bigphoto+ '"><br>'+ingredients+'<br><a href="'+surl+'">CLICK ME FOR DIRECTIONS</a>';
+                        $('#resultyou').append(result); 
+                        $('#resultme').append(name);
                       }
-                    }
                 });
 
-
-
+}
+loadpage();
 
 </script>
+
+ 
+
     
 </body>
 </html>
-
-
-
-

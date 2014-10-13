@@ -41,7 +41,7 @@ $(function() {
         $item.find( "a.ui-icon-heart" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           $item
-            .animate({ width: "85px" })
+            .animate({ width: "80px" })
             .find( "img" )
               .animate({ height: "15px" });
         });
@@ -56,7 +56,7 @@ $(function() {
           .find( "a.ui-icon-trash" )
             .remove()
           .end()
-          .css( "width", "90px")
+          .css( "width", "80px")
           .append( trash_icon )
           .find( "img" )
             .css( "height", "30px" )
