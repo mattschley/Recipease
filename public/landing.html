@@ -22,6 +22,10 @@
    <!--  // <script src="//code.jquery.com/jquery-1.11.1.js"></script> -->
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
+    <style>
+    a:link { text-decoration: none; color: black; }
+    a:hover{ color: blue; }
+    </style>
   </head>
   <body>
   <script type="text/javascript">
@@ -56,10 +60,12 @@
 
                         // var result0 = 
                         // '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href= "recipe_results.html" value = "http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
+  
                         var result1 = 
-                         '<a href= "recipe_results.html" value = ' + json['matches'][i].id + '</div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
+                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
+                           
                         var result2 = 
-                        '<h3>rating:  '+ json['matches'][i].rating + '<br>'; 
+                        '<h5>rating:  '+ json['matches'][i].rating + '<br>'; 
                         var result3 = 
                         '<img src='+ json['matches'][i].smallImageUrls + '></div><br>';
                         var result =result1 + result2 + result3;
@@ -83,7 +89,7 @@
 <div id="wrap">
   
   <!-- Static bottom navbar -->
-  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bottom-collapse"> <!-- NOTE! data-target was changed to .bottom-collapse -->
@@ -95,34 +101,18 @@
       </div>
       <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="fridge.html">My Fridge</a></li>
-          <li><a href="ingredients.html">Ingredients</a></li>
           
         </ul>
       </div><!--/.nav-collapse -->
     </div>
   </div>
 
+
        <div class="row" id="badge"></div>
           <div class="row">
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Chestnuts</h3>
-        </div>
-        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Chestnuts</h3>
-        </div>
-              <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
-          <a href="#">
-              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
-          </a>
-              <h3 class="header">Chestnuts</h3>
+ 
         </div>
       </div>
   </body>
