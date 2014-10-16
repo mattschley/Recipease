@@ -20,12 +20,67 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
 
-      <!-- script references 
-      <form method="post" action="hello.php"></form>
-      <?php
-      session_start();
-      $_SESSION['name'] = $inputname;
-      ?>-->
+    <script type="text/javascript">
+$( document).ready(function() {
+  str1 = '';
+  str2 = '';
+  
+  
+  $('#submit').click(function() {
+   $('#trash li h5').each(function() {
+    var item = $(this).text();
+     //localStorage.setItem('ingredient', item);
+   // alert(localStorage.getItem('ingredient'));
+     str1 += str2+item+'+';  
+    // alert("test");
+     //alert(str1);
+}); 
+  
+    //alert(DistinctStr(str1,"+"));
+    strFridge = (DistinctStr(str1,"+"));
+    //alert(strFridge);
+
+
+    localStorage.setItem('strFridge', JSON.stringify(strFridge));
+     return strFridge; 
+
+   });
+
+});
+  
+   function DistinctStr(str, strSplit)
+    {
+    var flag = "";
+    var DistinctStr = "";
+    var newstr = str.split(strSplit);
+    var max = newstr.length;
+    for (var i = 0; i < max; i++)
+    {
+    flag = newstr[i];
+    for (var j = i + 1; j < max; j++)
+    {
+    if (newstr[j] == flag && flag.length != 0)
+    {
+    newstr[j] = "";
+    }
+    }
+    if (newstr[i].length != 0)
+    {
+    if (DistinctStr.length != 0)
+    {
+    DistinctStr = DistinctStr + strSplit + newstr[i];
+    }
+    else
+    {
+    DistinctStr = newstr[i];
+    }
+    }
+    }
+    return DistinctStr;
+    } 
+
+
+    </script>
       <script src="js/scripts.js"></script>
       <script src="js/fridge.js"></script>
 
@@ -154,9 +209,12 @@
 
 <div id="trash" class="ui-widget-content ui-state-default">
 <h3 id="myfridge">My Fridge</h3>
+<a href = "fridge_results.html">
+<button id="submit" type="button">Submit!</button>
+</div>
+</a>
 </div>
 
-</div>
     
   </body>
 </html>

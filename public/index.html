@@ -60,27 +60,7 @@
                         //alert(i);
                         var resultid = json['matches'][i].id;
                         localStorage.setItem('resultid', JSON.stringify(resultid));
-                        // var resultid1 = json['matches'][1].id;
-                        // localStorage.setItem('resultid1', JSON.stringify(resultid1));
-                        // var resultid2 = json['matches'][2].id;
-                        // localStorage.setItem('resultid2', JSON.stringify(resultid2));
-                        // var resultid3 = json['matches'][3].id;
-                        // localStorage.setItem('resultid3', JSON.stringify(resultid3));
-                        // var resultid4 = json['matches'][4].id;
-                        // localStorage.setItem('resultid4', JSON.stringify(resultid4));
-                        // var resultid5 = json['matches'][5].id;
-                        // localStorage.setItem('resultid5', JSON.stringify(resultid5));
-                        // var resultid6 = json['matches'][6].id;
-                        // localStorage.setItem('resultid6', JSON.stringify(resultid6));
-                        // var resultid7 = json['matches'][7].id;
-                        // localStorage.setItem('resultid7', JSON.stringify(resultid7));
-                        // var resultid8 = json['matches'][8].id;
-                        // localStorage.setItem('resultid8', JSON.stringify(resultid8));
-                        // var resultid9 = json['matches'][9].id;
-                        // localStorage.setItem('resultid9', JSON.stringify(resultid9));
 
-                        // var result0 = 
-                        // '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href= "recipe_results.html" value = "http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
                         var result1 = 
                          '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
                         var result2 = 
