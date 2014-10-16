@@ -22,20 +22,6 @@
    <!--  // <script src="//code.jquery.com/jquery-1.11.1.js"></script> -->
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
-    <script>$(document).ready(function(e){
-    $('.search-panel .dropdown-menu').find('a').click(function(e) {
-    e.preventDefault();
-    var param = $(this).attr("href").replace("#","");
-    var concept = $(this).text();
-    alert(param);
-    $('.search-panel span#search_concept').text(concept);
-    $('.input-group #search_param').val(param);
-  });
-});</script>
-    <style>
-    a:link { text-decoration: none; color: black; }
-    a:hover{ color: blue;}
-    </style>
   </head>
   <body>
   <script type="text/javascript">
@@ -70,12 +56,10 @@
 
                         // var result0 = 
                         // '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href= "recipe_results.html" value = "http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
-  
                         var result1 = 
-                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
-                           
+                         '<a href= "recipe_results.html" value = ' + json['matches'][i].id + '</div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
                         var result2 = 
-                        '<h5>rating:  '+ json['matches'][i].rating + '<br>'; 
+                        '<h3>rating:  '+ json['matches'][i].rating + '<br>'; 
                         var result3 = 
                         '<img src='+ json['matches'][i].smallImageUrls + '></div><br>';
                         var result =result1 + result2 + result3;
@@ -99,57 +83,47 @@
 <div id="wrap">
   
   <!-- Static bottom navbar -->
-    <div class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bottom-collapse"> <!-- NOTE! data-target was changed to .bottom-collapse -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">RecipEase</a>
-        </div>
-        <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="fridge.html">My Fridge</a></li>
-            
-          </ul>
-        </div><!--/.nav-collapse -->
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bottom-collapse"> <!-- NOTE! data-target was changed to .bottom-collapse -->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">RecipEase</a>
       </div>
-    </div> 
-
-  
-        <div class="col-xs-12">
-        <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      <span id="search_concept">Cuisine</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#contains">Contains</a></li>
-                      <li><a href="#its_equal">It's equal</a></li>
-                      <li><a href="#greather_than">Greather than ></a></li>
-                      <li><a href="#less_than">Less than < </a></li>
-                      <li class="divider"></li>
-                      <li><a href="#all">Anything</a></li>
-                    </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" id="link" name="x" placeholder="Search term...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span onclick="fun()" class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-        </div>
-
-
-       <div class="row" id="badge">
-        
-       </div>
-
-        <div class="row">
-        </div>
+      <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="fridge.html">My Fridge</a></li>
+          <li><a href="ingredients.html"></a></li>
+          
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
   </div>
+
+       <div class="row" id="badge"></div>
+          <div class="row">
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Chestnuts</h3>
+        </div>
+        <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Chestnuts</h3>
+        </div>
+              <div class="col-lg-2 col-sm-3 col-xs-4 wrapper">
+          <a href="#">
+              <img src="images/chestnut.jpg" class="thumbnail img-responsive" />
+          </a>
+              <h3 class="header">Chestnuts</h3>
+        </div>
+      </div>
   </body>
 </html>
