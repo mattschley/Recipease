@@ -58,7 +58,17 @@ var urlstring = 'http://api.yummly.com/v1/api/recipe/' + retrievedObjectDequote 
                         }
                         //alert(ingredients);
                         //var result = json['attribute'][i].id;
-                        var result = '<img src="'+ bigphoto+ '"><br><br><a class="btn1  " href="'+surl+'">CLICK FOR DIRECTIONS</a><br><br>'+ingredients+'';
+                        var result = '<a href="http://www.facebook.com/sharer.php?u='
+                                    +surl+
+                                    '"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" width="60px" alt="Facebook" /></a><a href="https://plus.google.com/share?url='
+                                    +surl+
+                                    '" target="_blank"><img width="60px" src="http://www.simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a><a href="http://www.linkedin.com/shareArticle?mini=true&url='
+                                    +surl+
+                                    '"><img width="60px"src="http://www.simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a><a href="http://reddit.com/submit?url='
+                                    +surl+
+                                    '"><img width="60px"src="http://www.simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" /></a><a href="http://twitter.com/share?url='
+                                    +surl+
+                                    '"><img width="60px"src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a><br><img src="'+ bigphoto+ '"><br><a class="btn1"href="'+surl+'">CLICK FOR DIRECTIONS</a> <br>'+ingredients+'<br>';
                         $('#resultyou').append(result); 
                         $('#resultme').append(name);
                       }
