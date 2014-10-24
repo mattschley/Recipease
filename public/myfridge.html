@@ -67,7 +67,6 @@
 
     <header>
       <h1>My Fridge List</h1>
-      <a href="test.html">Test</a>
       <input id="new-todo" type="text" placeholder="What ingredients do you have?">
     </header>
 
@@ -102,9 +101,9 @@
 
   <script type="text/template" id="stats-template">
     <% if (done) { %>
-      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+      <a id="clear-completed">Clear <%= done %> selected <%= done == 1 ? 'item' : 'items' %></a>
     <% } %>
-    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+    
   </script>
   
 
