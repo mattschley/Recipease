@@ -123,6 +123,7 @@ body {
 
 #todo-list li .view label {
 	word-break: break-word;
+	font-weight: normal;
 }
 
 #todo-list li .edit {
@@ -186,3 +187,7 @@ body {
 	font-weight: bold;
 }
 
+#submit{
+	display:block;
+	margin: 0 auto;
+}

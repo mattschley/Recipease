@@ -20,7 +20,6 @@
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
       <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
    <!--  // <script src="//code.jquery.com/jquery-1.11.1.js"></script> -->
-   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
     <script>$(document).ready(function(e){
@@ -28,7 +27,7 @@
     e.preventDefault();
     var param = $(this).attr("href").replace("#","");
     var concept = $(this).text();
-    food_button(concept);
+    alert(param);
     $('.search-panel span#search_concept').text(concept);
     $('.input-group #search_param').val(param);
   });
@@ -73,10 +72,10 @@
                         // '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href= "recipe_results.html" value = "http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
   
                         var result1 = 
-                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>'+ json['matches'][i].recipeName + '<br>';
+                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
                            
                         var result2 = 
-                        '<h5>'+ json['matches'][i].rating + ' Stars<br>'; 
+                        '<h5>rating:  '+ json['matches'][i].rating + '<br>'; 
                         var result3 = 
                         '<img src='+ json['matches'][i].smallImageUrls + '></div><br>';
                         var result =result1 + result2 + result3;
@@ -93,7 +92,6 @@
 
                 });
       });
-
  }
  onload();
 </script>
@@ -122,26 +120,25 @@
     </div> 
 
   
-        <div class="col-xs-12" class="full">
+        <div class="col-xs-12">
         <div class="input-group">
                 <div class="input-group-btn search-panel">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                       <span id="search_concept">Cuisine</span> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#contains" id="Asian">Asian</a></li>
-                      <li><a href="#its_equal" id="Italian">Italian</a></li>
-                      <li><a href="#greather_than" id="Indian">Indian</a></li>
-                      <li><a href="#greather_than" id="American">American</a></li>
-                      <li><a href="#less_than" id="Mexican">Mexican</a></li>
+                      <li><a href="#contains">Chinese</a></li>
+                      <li><a href="#its_equal">Italian</a></li>
+                      <li><a href="#greather_than">Indian</a></li>
+                      <li><a href="#less_than"></a></li>
                       <li class="divider"></li>
                       <li><a href="#all">Anything</a></li>
                     </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" id="link" name="x" placeholder="Search">
+                <input type="text" class="form-control" id="link" name="x" placeholder=" Choose cuisine or search ...">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" onclick="fun()"><span onclick="fun()" class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" type="button"><span onclick="fun()" class="glyphicon glyphicon-search"></span></button>
                 </span>
             </div>
         </div>
