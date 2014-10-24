@@ -180,3 +180,7 @@ h5{
 .form-control{
   padding: 0px;
 }
+
+
+a:link { text-decoration: none; color: black; }
+a:hover{ color: blue;}
