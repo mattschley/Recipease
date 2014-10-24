@@ -33,11 +33,13 @@ $(function() {
     // image deletion function
     var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Delete Ingredient' class='ui-icon ui-icon-trash'>Delete Ingredient</a>";
     function deleteImage( $item ) {
+      var test = $item; 
+        console.log(test);
       $item.fadeOut(function() {
         var $list = $( "ul", $trash ).length ?
           $( "ul", $trash ) :
           $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
- 
+          
         $item.find( "a.ui-icon-heart" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           $item
@@ -84,3 +86,25 @@ $(function() {
       return false;
     });
   });
+
+
+function makeFridge(){
+var items = localStorage.getItem('strFridge');
+alert(items);
+function deleteImage( $item ) {
+      $item.fadeOut(function() {
+        var $list = $( "ul", $trash ).length ?
+          $( "ul", $trash ) :
+          $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
+ 
+        $item.find( "a.ui-icon-heart" ).remove();
+        $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+          $item
+            .animate({ width: "80px" })
+            .find( "img" )
+              .animate({ height: "15px" });
+        });
+      });
+    }
+
+}

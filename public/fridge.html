@@ -22,6 +22,7 @@
 
     <script type="text/javascript">
 $( document).ready(function() {
+  alert("load the fridge");
   str1 = '';
   str2 = '';
   
@@ -34,7 +35,8 @@ $( document).ready(function() {
      str1 += str2+item+'+';  
     // alert("test");
      //alert(str1);
-}); 
+
+    }); 
   
     //alert(DistinctStr(str1,"+"));
     strFridge = (DistinctStr(str1,"+"));
@@ -42,12 +44,13 @@ $( document).ready(function() {
 
 
     localStorage.setItem('strFridge', JSON.stringify(strFridge));
+    alert(strFridge); 
      return strFridge; 
 
    });
 
 });
-  
+
    function DistinctStr(str, strSplit)
     {
     var flag = "";
@@ -114,7 +117,7 @@ $( document).ready(function() {
   <h3></h3>
 
 
-<div class="ui-widget ui-helper-clearfix">
+<div class="ui-widget ui-helper-clearfix" onload="makeFridge()">
 <h2>All Ingredients</h2>
 <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
   

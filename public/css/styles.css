@@ -127,3 +127,57 @@ h2{
   font-weight: 700;
   margin-top: 1px;
 }
+
+.centeredup img{
+margin-top: 0px;
+margin-left: 0px;
+width: 100%
+}
+#badge.centeredup{
+margin-top: 10px;
+margin-left: 0px;
+}
+
+#resultme{
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+#resultyou{
+  text-align: center;
+  font-size: 15px;  
+}
+.btn1 {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+}
+
+.btn1:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+.col-xs-12{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+h5{
+  font-size: 1.2em;
+}
+#badge > h3{
+  font-size: 1.3em;
+}
+.form-control{
+  padding: 0px;
+}

@@ -7,9 +7,18 @@ function override(e){
 }
 function fun(){
 	var link_s = document.getElementById('link').value;
-	alert(link_s);
+	//alert(link_s);
 	deletediv();
 	call_api(link_s);
+}
+function food_button(concept){
+	//alert(concept);
+
+var link_s = document.getElementById(concept).innerHTML;
+	//alert(link_s);
+	deletediv();
+	call_api(link_s);
+
 }
 function call_api(link_s){
 
@@ -57,6 +66,13 @@ function deletediv(){
 	div.removeChild(div.firstChild);}
 }
 
+function keydown(ev){
+	if(ev.keyCode == 13){
+		fun();
+	}
+
+}
+ document.onkeydown = function(ev){ keydown(ev) };
 // var foods = [];
 // function loadArray(){
 //   $(document).ready(function() {

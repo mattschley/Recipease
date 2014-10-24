@@ -23,9 +23,10 @@
   
 </head>
 <body>
-       <div class="row" class = "badge" id="badge"></div>
+       <div class ="centeredup"class = "badge" id="badge">
        <div id="resultme"></div><br>
         <div id = "resultyou"></div>
+      </div>
 <script type="text/javascript">
 function loadpage(){
 
@@ -57,7 +58,7 @@ var urlstring = 'http://api.yummly.com/v1/api/recipe/' + retrievedObjectDequote 
                         }
                         //alert(ingredients);
                         //var result = json['attribute'][i].id;
-                        var result = '<img src="'+ bigphoto+ '"><br>'+ingredients+'<br><a href="'+surl+'">CLICK ME FOR DIRECTIONS</a>';
+                        var result = '<img src="'+ bigphoto+ '"><br><br><a class="btn1  " href="'+surl+'">CLICK FOR DIRECTIONS</a><br><br>'+ingredients+'';
                         $('#resultyou').append(result); 
                         $('#resultme').append(name);
                       }
