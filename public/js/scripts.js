@@ -12,13 +12,9 @@ function fun(){
 	call_api(link_s);
 }
 function food_button(concept){
-	//alert(concept);
-
-var link_s = document.getElementById(concept).innerHTML;
-	//alert(link_s);
+//var link_s = document.getElementById(concept).innerHTML;
 	deletediv();
-	call_api(link_s);
-
+	call_api(concept);
 }
 function call_api(link_s){
 

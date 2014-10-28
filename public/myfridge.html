@@ -10,9 +10,7 @@
 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
     <link rel="stylesheet" href="css/todo.css"/>
       <!-- script references 
       <form method="post" action="hello.php"></form>
@@ -23,22 +21,73 @@
       <script src="js/scripts.js"></script>
       <script src="js/todo.js"></script>
       <script src="js/bootstrap.min.js"></script>
+      
       <script type="text/javascript">
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5201171-9']);
-    _gaq.push(['_trackPageview']);
+      $(document).ready(function() {
+        str1 = '';
+        str2 = '';
+        
+        //#todo-list > li > div > 
+        $('#submit').click(function() {
+         $('input[name=ingredients]:checked').each(function() {
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
-  '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+          var item = $(this).attr('value');
+           //localStorage.setItem('ingredient', item);
+         // alert(localStorage.getItem('ingredient'));
+           str1 += str2+item+'+';  
+          }); 
+          
+          strFridge = (DistinctStr(str1,"+"));
+          localStorage.setItem('strFridge', JSON.stringify(strFridge));
+          alert(strFridge);
+          return strFridge;
 
-  </script>
+
+        });
+
+
+
+
+      });
+
+
+    function DistinctStr(str, strSplit)
+    {
+    var flag = "";
+    var DistinctStr = "";
+    var newstr = str.split(strSplit);
+    var max = newstr.length;
+    for (var i = 0; i < max; i++)
+    {
+    flag = newstr[i];
+    for (var j = i + 1; j < max; j++)
+    {
+    if (newstr[j] == flag && flag.length != 0)
+    {
+    newstr[j] = "";
+    }
+    }
+    if (newstr[i].length != 0)
+    {
+    if (DistinctStr.length != 0)
+    {
+    DistinctStr = DistinctStr + strSplit + newstr[i];
+    }
+    else
+    {
+    DistinctStr = newstr[i];
+    }
+    }
+    }
+    return DistinctStr;
+    } 
+      </script>
+
+      </script>
   </head>
   <body>
+
 
 <!-- Wrap all page content here -->
 <div id="wrap">
@@ -57,7 +106,7 @@
       <div class="navbar-collapse collapse bottom-collapse"> <!-- NOTE! The extra bottom-collapse class put on here -->
         <ul class="nav navbar-nav">
           <li><a href="index.html">Home</a></li>
-          <li><a href="fridge.html">My Fridge</a></li>
+          <li><a href="myfridge.html">My Fridge</a></li>
           
         </ul>
       </div><!--/.nav-collapse -->
@@ -76,8 +125,11 @@
     </section>
 
     <footer>
+
       <div id="todo-count"></div>
     </footer>
+
+
 
   </div>
 
@@ -92,19 +144,20 @@
 
   <script type="text/template" id="item-template">
     <div class="view">
-      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-      <label><%- title %></label>
+      <input class="toggle" name="ingredients" value="<%- title %>" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+      <label id="label"><%- title %></label>
       <a class="destroy"></a>
     </div>
     <input class="edit" type="text" value="<%- title %>" />
   </script>
 
   <script type="text/template" id="stats-template">
-    <% if (done) { %>
-      <a id="clear-completed">Clear <%= done %> selected <%= done == 1 ? 'item' : 'items' %></a>
-    <% } %>
+    <a href = "fridge_results.html">
+    <button id="submit" type="button">Submit!</button>
+    </a>
     
   </script>
+  
   
 
 
