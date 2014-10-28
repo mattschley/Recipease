@@ -35,10 +35,10 @@ count = 0;
                         // '<div class="col-lg-2 col-sm-3 col-xs-4 wrapper"><a href= "recipe_results.html" value = "http://api.yummly.com/v1/api/recipe/' + json['matches'][i].id + '?_app_id=2561983c&_app_key=cd08ea50368dcded18b2e38d40d3e8f8"</div>';
   
                         var result1 = 
-                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>Recipe Name:  '+ json['matches'][i].recipeName + '<br>';
+                         '<div><a href="recipe_results.html" onclick="override(this)" id="'+resultid+'" value = ' + json['matches'][i].id + '</a></div><h3>'+ json['matches'][i].recipeName + '<br>';
                            
                         var result2 = 
-                        '<h5>rating:  '+ json['matches'][i].rating + '<br>'; 
+                        '<h5>Rating:  '+ json['matches'][i].rating + '<br>'; 
                         var result3 = 
                         '<img src='+ json['matches'][i].smallImageUrls + '></div><br>';
                         var result =result1 + result2 + result3;
