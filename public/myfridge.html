@@ -33,14 +33,12 @@
          $('input[name=ingredients]:checked').each(function() {
 
           var item = $(this).attr('value');
-           //localStorage.setItem('ingredient', item);
-         // alert(localStorage.getItem('ingredient'));
+        
            str1 += str2+item+'+';  
           }); 
           
           strFridge = (DistinctStr(str1,"+"));
           localStorage.setItem('strFridge', JSON.stringify(strFridge));
-          alert(strFridge);
           return strFridge;
 
 
