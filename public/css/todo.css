@@ -6,7 +6,7 @@ body {
 }
 
 body {
-	font: 14px "Roboto", Helvetica, Arial, sans-serif;
+	font: 19px "Roboto", Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
 	background: #eeeeee;
 	color: #333333;
@@ -71,7 +71,7 @@ body {
 #todo-list li {
 	padding: 0px;
 	position: relative;
-	font-size: 14px;
+	font-size: 20px;
 	border-bottom: 1px solid #cccccc;
 }
 
@@ -208,4 +208,8 @@ body {
 #submit a{
 	color: #ffffff;
 	background-color: #000000;
+}
+input[type='checkbox'] {
+    width:30px;
+    height:30px;
 }
