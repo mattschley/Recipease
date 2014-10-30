@@ -6,7 +6,7 @@ body {
 }
 
 body {
-	font: 19px "Roboto", Helvetica, Arial, sans-serif;
+	font: 14px "Roboto", Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
 	background: #eeeeee;
 	color: #333333;
@@ -212,4 +212,8 @@ body {
 input[type='checkbox'] {
     width:30px;
     height:30px;
+}
+#main
+{
+	font-size: 20px;
 }
